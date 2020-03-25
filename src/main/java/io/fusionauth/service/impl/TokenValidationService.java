@@ -25,7 +25,7 @@ public class TokenValidationService {
     boolean isTokenValid = fusionAuthClient.validateJWT(token.getToken()).wasSuccessful();
     if(isTokenValid){
       Map<String, Object> data = new HashMap<>();
-      data.put("token", token);
+      data.put("token", token.getToken());
       return ResponseDto.builder()
               .success(Boolean.TRUE)
               .message(MESSAGE_THE_TOKEN_IS_VALID)
