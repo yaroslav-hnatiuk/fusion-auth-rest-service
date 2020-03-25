@@ -44,19 +44,12 @@ public class AuthController {
       consumes = "application/json"
   )
   public ResponseEntity<ResponseDto> isTokenValid(@RequestBody TokenDto token) {
-    boolean isTokenValid = tokenValidation.isTokenValid(token);
-    if (isTokenValid) {
-      return ResponseEntity.ok(ResponseDto.builder()
-                                          .data(null)
-                                          .message(Util.MESSAGE_THE_TOKEN_IS_VALID)
-                                          .success(Boolean.TRUE)
-                                          .build());
+    ResponseDto response = tokenValidation.isTokenValid(token);
+    if (response.isSuccess()){
+      log.info("The token is valid.");
+      return ResponseEntity.ok(response);
     }
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                         .body(ResponseDto.builder()
-                                          .data(null)
-                                          .message(Util.MESSAGE_THE_TOKEN_IS_NOT_VALID)
-                                          .success(Boolean.FALSE)
-                                          .build());
+    log.info("The token is not valid.");
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
   }
 }

@@ -10,38 +10,18 @@
   <packaging>jar</packaging>
 
   <name>FusionAuth Spring Security Example</name>
-  <description>An example of using Spring Security in FusionAuth using OpenID Connect</description>
-  <url>https://github.com/FusionAuth/fusionauth-spring-security-example</url>
+  <description>An example of using Spring Security in FusionAuth for REST endpoints</description>
+  <url>https://github.com/yaroslav-hnatiuk/fusion-auth-rest-service</url>
 
-  <developers>
-    <developer>
-      <name>Tyler Scott</name>
-      <email>tyler@fusionauth.io</email>
-      <organization>FusionAuth</organization>
-      <organizationUrl>https://fusionauth.io</organizationUrl>
-    </developer>
-  </developers>
-
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://www.opensource.org/licenses/mit-license.php</url>
-    </license>
-  </licenses>
-
-  <scm>
-    <connection>scm:git:ssh://github.com:fusionauth/fusionauth-spring-security-example</connection>
-    <url>https://github.com/fusionauth/fusionauth-spring-security-example</url>
-  </scm>
-
-  <properties>
+   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-
     <fusionauth-spring-security.version>1.0.4</fusionauth-spring-security.version>
     <fusionauth-java-client.version>1.6.0</fusionauth-java-client.version>
     <spring-security-oauth2.version>2.3.6.RELEASE</spring-security-oauth2.version>
     <spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
+     <lombok.version>1.18.12</lombok.version>
+     <apache-commons.version>3.9</apache-commons.version>
   </properties>
 
   <parent>
@@ -98,12 +78,12 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
+      <version>${lombok.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.9</version>
+      <version>${apache-commons.version}</version>
     </dependency>
 
   </dependencies>
