@@ -26,9 +26,17 @@ public class UserProfile implements UserDetails {
 
   private List<Role> roles;
 
+  private boolean isAccountNonExpired;
+
+  private boolean isAccountNonLocked;
+
+  private boolean isCredentialsNonExpired;
+
+  private boolean isEnabled;
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return null;
+    return roles;
   }
 
   @Override
@@ -43,22 +51,22 @@ public class UserProfile implements UserDetails {
 
   @Override
   public boolean isAccountNonExpired() {
-    return true;
+    return isAccountNonExpired;
   }
 
   @Override
   public boolean isAccountNonLocked() {
-    return true;
+    return isAccountNonLocked;
   }
 
   @Override
   public boolean isCredentialsNonExpired() {
-    return true;
+    return isCredentialsNonExpired;
   }
 
   @Override
   public boolean isEnabled() {
-    return true;
+    return isEnabled;
   }
 
   public void setRoles(List<Role> roles) {
